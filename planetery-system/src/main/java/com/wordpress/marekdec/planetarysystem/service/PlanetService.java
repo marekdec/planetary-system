@@ -10,8 +10,11 @@ public class PlanetService {
 	@Inject
 	private PlanetRepository planetRepository;
 
+	@Inject
+	private SolarSystemService solarSystemService;
+
 	public Planet retrievePlanetWithRadiusMostSimilarToEarths() {
-		Planet earth = planetRepository.getByName("earth");
+		Planet earth = solarSystemService.getEarth();
 
 		if (earth != null) {
 			double earthRadius = earth.getKilometersOfRadius();
